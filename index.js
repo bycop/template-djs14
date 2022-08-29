@@ -5,10 +5,10 @@ const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const { Intents } = require('discord.js');
+const { IntentsBitField, Partials } = require('discord.js');
 const client = new Discord.Client({
-	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.DIRECT_MESSAGES],
-	partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+	intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.GuildMessageReactions, IntentsBitField.Flags.GuildPresences],
+	partials: [Partials.Message, Partials.Reaction, Partials.Channel]
 });
 
 client.commands = new Discord.Collection();
